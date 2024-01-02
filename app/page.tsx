@@ -5,6 +5,7 @@ import Image from "next/image";
 import Logo from "../public/logo.png";
 import InputForm from "./components/InputForm";
 import { useState } from "react";
+import TodoList from "./components/TodoList";
 
 export default function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -20,6 +21,7 @@ export default function App() {
           <h1 className="text-5xl font-bold">Todo</h1>
         </div>
         <InputForm addTodo={addTodo} />
+        <TodoList todos={todos} />
       </div>
     </main>
   );

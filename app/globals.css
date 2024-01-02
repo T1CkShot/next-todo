@@ -4,12 +4,9 @@
 
 @layer {
   body {
-    font-family: var(--font-inter);
+    @apply font-body;
     @apply bg-background;
     @apply text-text;
-  }
-
-  h1 {
-    font-family: var(--font-poppins);
+    @apply font-normal;
   }
 }

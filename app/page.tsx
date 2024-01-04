@@ -17,7 +17,7 @@ export default function App() {
           <Image src={Logo} alt={"logo"} width={53} height={50}></Image>
           <h1 className="text-5xl font-bold">Todo</h1>
         </div>
-        <InputForm todos={todos} setTodos={setTodos} />
+        <InputForm setTodos={setTodos} />
         <TodoList todos={todos} />
       </div>
     </main>

@@ -3,11 +3,10 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 import { FormEvent, Dispatch, SetStateAction, useState } from "react";
 
 interface Props {
-  todos: Todo[];
   setTodos: Dispatch<SetStateAction<Todo[]>>;
 }
 
-export default function InputForm({ todos, setTodos }: Props) {
+export default function InputForm({ setTodos }: Props) {
   const [todoTitle, setTodoTitle] = useState("");
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

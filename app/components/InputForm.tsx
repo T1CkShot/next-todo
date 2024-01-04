@@ -1,20 +1,24 @@
-import type { Todo } from "@/lib/todos";
+import { Todo, addTodo } from "@/lib/todos";
 import { PlusIcon } from "@heroicons/react/24/solid";
-import { FormEvent, useState } from "react";
+import { FormEvent, Dispatch, SetStateAction, useState } from "react";
 
 interface Props {
-  addTodo: (todo: Todo) => void;
+  todos: Todo[];
+  setTodos: Dispatch<SetStateAction<Todo[]>>;
 }
 
-export default function InputForm({ addTodo }: Props) {
+export default function InputForm({ todos, setTodos }: Props) {
   const [todoTitle, setTodoTitle] = useState("");
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    addTodo({
-      id: Date.now().toString(),
-      name: todoTitle,
-      checked: false,
-    });
+    addTodo(
+      {
+        id: Date.now().toString(),
+        name: todoTitle,
+        checked: false,
+      },
+      setTodos,
+    );
     setTodoTitle("");
   };
 

@@ -28,14 +28,14 @@ export default function InputForm({ todos, setTodos }: Props) {
         <input
           type="text"
           placeholder="Add new todo..."
-          className="border-b-accent border-b-2 p-1 outline-none bg-background text-xl max-w-xl w-full"
+          className="border-b-primary border-b-2 p-1 outline-none bg-background text-xl max-w-xl w-full"
           required
           maxLength={65}
           value={todoTitle}
           aria-label="Todo Name"
           onChange={(e) => setTodoTitle(e.target.value)}
         />
-        <button className="p-2 pl-4 pr-4 ml-3 font-bold bg-accent flex items-center rounded-lg">
+        <button className="p-2 pl-4 pr-4 ml-3 font-bold bg-primary flex items-center rounded-lg">
           <PlusIcon className="h-6 w-6" />
         </button>
       </div>

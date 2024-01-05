@@ -1,6 +1,6 @@
 "use client";
 
-import type { Todo } from "@/lib/todos";
+import { Todo, getTodos } from "@/lib/todos";
 import Image from "next/image";
 import Logo from "../public/logo.png";
 import InputForm from "./components/InputForm";
@@ -9,13 +9,7 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const localKey = "next-todo.listItems";
-  const [todos, setTodos] = useState<Todo[] | null>(() => {
-    const localTodos = localStorage.getItem(localKey);
-    if (localTodos) {
-      return JSON.parse(localTodos);
-    }
-    return [];
-  });
+  const [todos, setTodos] = useState<Todo[] | null>(getTodos(localKey));
   useEffect(() => {
     localStorage.setItem(localKey, JSON.stringify(todos));
   }, [todos]);

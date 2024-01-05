@@ -18,3 +18,11 @@ export function addTodo(
     return [todo];
   });
 }
+
+export function getTodos(key: string) {
+  const todos = localStorage.getItem(key);
+  if (todos) {
+    return JSON.parse(todos);
+  }
+  return [];
+}

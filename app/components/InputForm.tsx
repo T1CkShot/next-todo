@@ -3,7 +3,7 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 import { FormEvent, Dispatch, SetStateAction, useState } from "react";
 
 interface Props {
-  setTodos: Dispatch<SetStateAction<Todo[]>>;
+  setTodos: Dispatch<SetStateAction<Todo[] | null>>;
 }
 
 export default function InputForm({ setTodos }: Props) {

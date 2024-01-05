@@ -1,14 +1,14 @@
 import type { Todo } from "@/lib/todos";
 
 interface Props {
-  todos: Todo[];
+  todos: Todo[] | null;
 }
 
 export default function TodoList({ todos }: Props) {
   return (
     <>
       <ul className="w-full flex flex-col items-start mt-4 max-w-xl">
-        {todos.map((todo) => {
+        {todos?.map((todo) => {
           return (
             <li key={todo.id} className="p-1 font-body text-xl gap-2 flex">
               <input

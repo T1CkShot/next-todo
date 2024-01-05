@@ -4,16 +4,20 @@ import type { Todo } from "@/lib/todos";
 import Image from "next/image";
 import Logo from "../public/logo.png";
 import InputForm from "./components/InputForm";
-import { useEffect, useState } from "react";
 import TodoList from "./components/TodoList";
+import { useEffect, useState } from "react";
 
 export default function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  useEffect(() => {
-    let localTodos = localStorage.getItem("next-todo");
+  const localKey = "next-todo.listItems";
+  const [todos, setTodos] = useState<Todo[] | null>(() => {
+    const localTodos = localStorage.getItem(localKey);
     if (localTodos) {
-      setTodos(JSON.parse(localTodos));
+      return JSON.parse(localTodos);
     }
+    return [];
+  });
+  useEffect(() => {
+    localStorage.setItem(localKey, JSON.stringify(todos));
   }, [todos]);
 
   return (

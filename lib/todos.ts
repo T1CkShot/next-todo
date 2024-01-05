@@ -1,3 +1,4 @@
+import { warn } from "console";
 import { Dispatch, SetStateAction } from "react";
 
 export type Todo = {
@@ -8,7 +9,12 @@ export type Todo = {
 
 export function addTodo(
   todo: Todo,
-  setTodos: Dispatch<SetStateAction<Todo[]>>,
+  setTodos: Dispatch<SetStateAction<Todo[] | null>>,
 ) {
-  setTodos((prevState: Todo[]) => [...prevState, todo]);
+  setTodos((prevState: Todo[] | null) => {
+    if (prevState) {
+      return [...prevState, todo];
+    }
+    return [todo];
+  });
 }

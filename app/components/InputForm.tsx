@@ -29,7 +29,7 @@ export default function InputForm({ setTodos }: Props) {
           placeholder="Add new todo..."
           className="border-b-primary border-b-2 p-1 outline-none bg-background text-xl max-w-xl w-full"
           required
-          maxLength={65}
+          maxLength={40}
           value={todoTitle}
           aria-label="Todo Name"
           onChange={(e) => setTodoTitle(e.target.value)}

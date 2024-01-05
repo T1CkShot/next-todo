@@ -4,11 +4,17 @@ import type { Todo } from "@/lib/todos";
 import Image from "next/image";
 import Logo from "../public/logo.png";
 import InputForm from "./components/InputForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TodoList from "./components/TodoList";
 
 export default function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
+  useEffect(() => {
+    let localTodos = localStorage.getItem("next-todo");
+    if (localTodos) {
+      setTodos(JSON.parse(localTodos));
+    }
+  }, [todos]);
 
   return (
     <main className="flex justify-center items-center min-h-screen pt-4 pb-4 ml-6 mr-6">

@@ -27,3 +27,15 @@ export function getTodos(key: string) {
     return [];
   }
 }
+
+export function deleteTodo(
+  id: string,
+  setTodos: Dispatch<SetStateAction<Todo[] | null>>,
+) {
+  setTodos((prevState: Todo[] | null) => {
+    if (prevState) {
+      return prevState?.filter((todo) => todo.id !== id);
+    }
+    return [];
+  });
+}

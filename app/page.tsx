@@ -23,7 +23,7 @@ export default function App() {
           <h1 className="text-5xl font-bold">Todo</h1>
         </div>
         <InputForm setTodos={setTodos} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} setTodos={setTodos} />
       </div>
     </main>
   );

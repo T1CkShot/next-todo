@@ -1,4 +1,3 @@
-import { warn } from "console";
 import { Dispatch, SetStateAction } from "react";
 
 export type Todo = {
@@ -20,9 +19,11 @@ export function addTodo(
 }
 
 export function getTodos(key: string) {
-  const todos = localStorage.getItem(key);
-  if (todos) {
-    return JSON.parse(todos);
+  if (typeof window !== "undefined") {
+    const todos = localStorage.getItem(key);
+    if (todos) {
+      return JSON.parse(todos);
+    }
+    return [];
   }
-  return [];
 }

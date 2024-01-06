@@ -1,11 +1,12 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { Todo, getTodos } from "@/lib/todos";
 import Image from "next/image";
 import Logo from "../public/logo.png";
 import InputForm from "./components/InputForm";
-import TodoList from "./components/TodoList";
 import { useEffect, useState } from "react";
+const TodoList = dynamic(() => import("./components/TodoList"), { ssr: false });
 
 export default function App() {
   const localKey = "next-todo.listItems";

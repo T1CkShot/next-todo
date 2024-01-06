@@ -1,3 +1,4 @@
+"use client";
 import type { Todo } from "@/lib/todos";
 
 interface Props {

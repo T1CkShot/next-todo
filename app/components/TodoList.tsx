@@ -19,13 +19,15 @@ export default function TodoList({ todos, setTodos }: Props) {
             >
               <input
                 type="checkbox"
-                className="w-6 text-primary align-middle accent-primary"
+                className="w-6 text-primary align-middle accent-primary peer"
                 checked={todo.checked}
                 onChange={(e) =>
                   toggleTodo(todo.id, e.target.checked, setTodos)
                 }
               />
-              {todo.name}
+              <p className="peer-checked:text-slate-400 peer-checked:line-through">
+                {todo.name}
+              </p>
               <button
                 className="p-2 font-bold hover:bg-primary flex items-center rounded-lg ml-auto"
                 onClick={() => deleteTodo(todo.id, setTodos)}

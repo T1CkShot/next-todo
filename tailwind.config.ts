@@ -7,15 +7,17 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      text: "hsl(205, 49%, 93%)",
-      background: "hsl(210, 50%, 7%)",
-      secondary: "hsl(261, 50%, 35%)",
-      primary: "hsl(279, 50%, 54%)",
-    },
-    fontFamily: {
-      header: "var(--font-poppins)",
-      body: "var(--font-inter)",
+    extend: {
+      colors: {
+        text: "hsl(205, 49%, 93%)",
+        background: "hsl(210, 50%, 7%)",
+        secondary: "hsl(261, 50%, 35%)",
+        primary: "hsl(279, 50%, 54%)",
+      },
+      fontFamily: {
+        header: "var(--font-poppins)",
+        body: "var(--font-inter)",
+      },
     },
   },
   plugins: [],

@@ -26,6 +26,7 @@ export default function InputForm({ setTodos }: Props) {
       <div className="mt-4 w-full justify-center flex">
         <input
           type="text"
+          name="title"
           placeholder="Add new todo..."
           className="border-b-primary border-b-2 p-1 outline-none bg-background text-xl max-w-xl w-full"
           required
@@ -34,7 +35,10 @@ export default function InputForm({ setTodos }: Props) {
           aria-label="Todo Name"
           onChange={(e) => setTodoTitle(e.target.value)}
         />
-        <button className="p-2 pl-4 pr-4 ml-3 font-bold bg-primary flex items-center rounded-lg">
+        <button
+          className="p-2 pl-4 pr-4 ml-3 font-bold bg-primary flex items-center rounded-lg"
+          aria-label="add todo"
+        >
           <PlusIcon className="h-6 w-6" />
         </button>
       </div>

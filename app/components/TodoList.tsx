@@ -19,17 +19,22 @@ export default function TodoList({ todos, setTodos }: Props) {
             >
               <input
                 type="checkbox"
+                id={todo.id}
                 className="w-6 text-primary align-middle accent-primary peer"
                 checked={todo.checked}
                 onChange={(e) =>
                   toggleTodo(todo.id, e.target.checked, setTodos)
                 }
               />
-              <p className="peer-checked:text-slate-400 peer-checked:line-through">
+              <label
+                htmlFor={todo.id}
+                className="peer-checked:text-slate-400 peer-checked:line-through"
+              >
                 {todo.name}
-              </p>
+              </label>
               <button
                 className="p-2 font-bold hover:bg-primary flex items-center rounded-lg ml-auto"
+                aria-label={"delete " + todo.name}
                 onClick={() => deleteTodo(todo.id, setTodos)}
               >
                 <TrashIcon className="h-4 w-4" />

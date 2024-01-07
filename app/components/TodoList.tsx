@@ -1,4 +1,4 @@
-import { Todo, deleteTodo } from "@/lib/todos";
+import { Todo, deleteTodo, toggleTodo } from "@/lib/todos";
 import { TrashIcon } from "@heroicons/react/24/solid";
 import { Dispatch, SetStateAction } from "react";
 
@@ -20,6 +20,10 @@ export default function TodoList({ todos, setTodos }: Props) {
               <input
                 type="checkbox"
                 className="w-6 text-primary align-middle accent-primary"
+                checked={todo.checked}
+                onChange={(e) =>
+                  toggleTodo(todo.id, e.target.checked, setTodos)
+                }
               />
               {todo.name}
               <button

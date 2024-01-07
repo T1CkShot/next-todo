@@ -39,3 +39,21 @@ export function deleteTodo(
     return [];
   });
 }
+
+export function toggleTodo(
+  id: string,
+  checked: boolean,
+  setTodos: Dispatch<SetStateAction<Todo[] | null>>,
+) {
+  setTodos((prevState: Todo[] | null) => {
+    if (prevState) {
+      return prevState.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, checked };
+        }
+        return todo;
+      });
+    }
+    return prevState;
+  });
+}
